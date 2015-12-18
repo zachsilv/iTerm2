@@ -1234,7 +1234,8 @@ static const int kMaxScreenRows = 4096;
 
         //  VT100 CC
         case VT100CC_ENQ:
-            // TODO: Add support for an answerback string here.
+            // TODO: make this configurable
+            [delegate_ terminalSendReport:[@"Aljex_iTerm2\n" dataUsingEncoding:NSUTF8StringEncoding]];
             break;
         case VT100CC_BEL:
             [delegate_ terminalRingBell];
