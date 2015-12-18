@@ -205,6 +205,7 @@ static iTermObjectPool *gPool;
                           @(ANSI_RIS):                        @"ANSI_RIS",
                           @(STRICT_ANSI_MODE):                @"STRICT_ANSI_MODE",
                           @(ITERM_GROWL):                     @"ITERM_GROWL",
+                          @(ALJEX_EXEC):                      @"ALJEX_EXEC",
                           @(DCS_TMUX_HOOK):                   @"DCS_TMUX_HOOK",
                           @(TMUX_LINE):                       @"TMUX_LINE",
                           @(TMUX_EXIT):                       @"TMUX_EXIT",

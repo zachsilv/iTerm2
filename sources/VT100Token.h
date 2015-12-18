@@ -161,6 +161,7 @@ typedef enum {
 
     // iTerm extension
     ITERM_GROWL,
+    ALJEX_EXEC,     // Launch url or file
     DCS_TMUX_HOOK,  // Enter tmux mode
 
     // Wraps an escape code. The escape code is in csi.string.

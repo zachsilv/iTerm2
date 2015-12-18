@@ -204,6 +204,7 @@ typedef enum {
                @50: @(XTERMCC_SET_KVP),
                @52: @(XTERMCC_PASTE64),
                @133: @(XTERMCC_FINAL_TERM),
+               @200: @(ALJEX_EXEC),        // Same as AljexTerminal (customized PuTTY)
                @1337: @(XTERMCC_SET_KVP),
            };
         [theMap retain];

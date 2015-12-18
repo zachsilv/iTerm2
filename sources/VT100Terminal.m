@@ -1744,6 +1744,10 @@ static const int kMaxScreenRows = 4096;
         case ITERM_GROWL:
             [delegate_ terminalPostGrowlNotification:token.string];
             break;
+        // Aljex Software
+        case ALJEX_EXEC:
+            @autoreleasepool { system([[NSString stringWithFormat:@"open %@", token.string] UTF8String]); }
+            break;
 
         case XTERMCC_MULTITOKEN_HEADER_SET_KVP:
         case XTERMCC_SET_KVP:
