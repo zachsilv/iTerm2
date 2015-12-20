@@ -60,10 +60,10 @@ enum {
     IBOutlet NSButton *_enableBonjour;
 
     // Check for updates automatically
-    IBOutlet NSButton *_checkUpdate;
+    //IBOutlet NSButton *_checkUpdate;
 
     // Prompt for test-release updates
-    IBOutlet NSButton *_checkTestRelease;
+    //IBOutlet NSButton *_checkTestRelease;
 
     // Load prefs from custom folder
     IBOutlet NSButton *_loadPrefsFromCustomFolder;  // Should load?
@@ -186,7 +186,7 @@ enum {
     [self defineControl:_enableBonjour
                     key:kPreferenceKeyAddBonjourHostsToProfiles
                             type:kPreferenceInfoTypeCheckbox];
-
+/*
     [self defineControl:_checkUpdate
                     key:kPreferenceKeyCheckForUpdatesAutomatically
                    type:kPreferenceInfoTypeCheckbox];
@@ -194,7 +194,7 @@ enum {
     [self defineControl:_checkTestRelease
                     key:kPreferenceKeyCheckForTestReleases
                    type:kPreferenceInfoTypeCheckbox];
-
+*/
     // ---------------------------------------------------------------------------------------------
     info = [self defineControl:_loadPrefsFromCustomFolder
                            key:kPreferenceKeyLoadPrefsFromCustomFolder

@@ -2,7 +2,7 @@
 " " = " ";
 
 /* NSPanel (About iTerm) : <title:About iTerm> (oid:498) */
-"About iTerm" = "About iTerm";
+"About Aljex_iTerm2" = "About Aljex_iTerm2";
 
 /* NSMenuItem : <title:Bigger Font> (oid:804) */
 "Bigger Font" = "Bigger Font";
@@ -53,7 +53,7 @@
 "Hide Others" = "Hide Others";
 
 /* NSMenuItem : <title:Hide iTerm> (oid:134) */
-"Hide iTerm" = "Hide iTerm";
+"Hide Aljex_iTerm2" = "Hide Aljex_iTerm2";
 
 /* NSTextField (JTerminal Parts Copyright by Kiichi Kusama, kuma@icon.rim.or.jp) : <title:JTerminal Parts Copyright by Kiichi Kusama, kuma@icon.rim.or.jp> (oid:634) */
 "JTerminal Parts Copyright by Kiichi Kusama, kuma@icon.rim.or.jp" = "JTerminal Parts Copyright by Kiichi Kusama, kuma@icon.rim.or.jp";
@@ -107,7 +107,7 @@
 "Print..." = "Print...";
 
 /* NSMenuItem : <title:Quit iTerm> (oid:136) */
-"Quit iTerm" = "Quit iTerm";
+"Quit Aljex_iTerm2" = "Quit Aljex_iTerm2";
 
 /* NSMenuItem : <title:Save Display Profile> (oid:818) */
 "Save Display Profile" = "Save Display Profile";
@@ -167,8 +167,8 @@
 "Window" = "Window";
 
 /* NSTextField (iTerm) : <title:iTerm> (oid:510) */
-"iTerm" = "iTerm";
+"Aljex_iTerm2" = "Aljex_iTerm2";
 
 /* NSMenuItem : <title:iTerm Help> (oid:111) */
-"iTerm Help" = "iTerm Help";
+"Aljex_iTerm2 Help" = "Aljex_iTerm2 Help";
 

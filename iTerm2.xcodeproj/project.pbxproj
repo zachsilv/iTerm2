@@ -2125,7 +2125,7 @@
 		5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = PseudoTerminalRestorer.m; sourceTree = "<group>"; tabWidth = 4; };
 		5ECE4AC41451343E002A9CC2 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		5ECE4AE914514058002A9CC2 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		8742065A0564169600CFC3F1 /* iTerm2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTerm2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8742065A0564169600CFC3F1 /* Aljex_iTerm2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aljex_iTerm2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8786A96E052CEC220073D10E /* script.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = script.png; path = images/script.png; sourceTree = "<group>"; };
 		90A1E139186F9EA4003EC3E8 /* AppleScriptTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleScriptTest.h; sourceTree = "<group>"; };
 		90A1E13A186F9EA4003EC3E8 /* AppleScriptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = AppleScriptTest.m; sourceTree = "<group>"; };
@@ -3266,7 +3266,7 @@
 		0464AB32006CD2EC7F000001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8742065A0564169600CFC3F1 /* iTerm2.app */,
+				8742065A0564169600CFC3F1 /* Aljex_iTerm2.app */,
 				1DD39AD4180B8117004E56D5 /* iTerm2Tests.app */,
 				1DFA7C671923E83500DF1410 /* libSSKeychain.a */,
 				1D6EDB0A19AEA20D005A7799 /* iTerm2ForApplescriptTesting.app */,
@@ -5092,9 +5092,9 @@
 			productReference = 1DFA7C671923E83500DF1410 /* libSSKeychain.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		874206460564169600CFC3F1 /* iTerm2 */ = {
+		874206460564169600CFC3F1 /* Aljex_iTerm2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB024D35096EE4080021E793 /* Build configuration list for PBXNativeTarget "iTerm2" */;
+			buildConfigurationList = BB024D35096EE4080021E793 /* Build configuration list for PBXNativeTarget "Aljex_iTerm2" */;
 			buildPhases = (
 				874206480564169600CFC3F1 /* Headers */,
 				8742064A0564169600CFC3F1 /* Resources */,
@@ -5110,9 +5110,9 @@
 				A6C763D11B45C55200E3C992 /* PBXTargetDependency */,
 				A6C537BB19315CCB00A08C18 /* PBXTargetDependency */,
 			);
-			name = iTerm2;
+			name = Aljex_iTerm2;
 			productName = "JTerminal (Application)";
-			productReference = 8742065A0564169600CFC3F1 /* iTerm2.app */;
+			productReference = 8742065A0564169600CFC3F1 /* Aljex_iTerm2.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A6C7603F1B45C4CF00E3C992 /* iTerm2Shared */ = {
@@ -5185,7 +5185,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				874206460564169600CFC3F1 /* iTerm2 */,
+				874206460564169600CFC3F1 /* Aljex_iTerm2 */,
 				1DD39AD3180B8117004E56D5 /* iTerm2Tests */,
 				1DFA7C661923E83500DF1410 /* SSKeychain */,
 				1D6ED85219AEA20D005A7799 /* iTerm2ForApplescriptTesting */,
@@ -6197,7 +6197,7 @@
 		};
 		A6C764231B45CB2800E3C992 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874206460564169600CFC3F1 /* iTerm2 */;
+			target = 874206460564169600CFC3F1 /* Aljex_iTerm2 */;
 			targetProxy = A6C764221B45CB2800E3C992 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -6285,8 +6285,8 @@
 					"-licucore",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljex.iterm2;
+				PRODUCT_NAME = Aljex_iTerm2;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
@@ -7382,8 +7382,8 @@
 					"-licucore",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljex.iterm2;
+				PRODUCT_NAME = Aljex_iTerm2;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				VALID_ARCHS = x86_64;
@@ -7448,8 +7448,8 @@
 					"-licucore",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljex.iterm2;
+				PRODUCT_NAME = Aljex_iTerm2;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
@@ -7511,8 +7511,8 @@
 					"-ObjC",
 				);
 				OTHER_REZFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aljex.iterm2;
+				PRODUCT_NAME = Aljex_iTerm2;
 				REZ_EXECUTABLE = YES;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
@@ -7642,7 +7642,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		BB024D35096EE4080021E793 /* Build configuration list for PBXNativeTarget "iTerm2" */ = {
+		BB024D35096EE4080021E793 /* Build configuration list for PBXNativeTarget "Aljex_iTerm2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB024D36096EE4080021E793 /* Development */,

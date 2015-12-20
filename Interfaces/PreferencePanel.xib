@@ -4495,6 +4495,7 @@ DQ
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+<!--
                 <button id="5048">
                     <rect key="frame" x="18" y="127" width="287" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -4520,6 +4521,7 @@ DQ
                         <action selector="settingChanged:" target="9Se-ld-UJa" id="jqK-dm-ssy"/>
                     </connections>
                 </button>
+-->
                 <textField verticalHuggingPriority="750" id="5050">
                     <rect key="frame" x="18" y="171" width="60" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
