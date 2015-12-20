@@ -1,4 +1,6 @@
-This site hosts code for <a href="https://iterm2.com">iTerm2</a>.
+This is a fork of <a href="https://iterm2.com">iTerm2</a> by <a href="http://www.aljex.com">Aljex Software Inc.</a>
 
-<a href="https://iterm2.com/bugs">File a bug report here!</a> Issues are on <a href="https://gitlab.com/gnachman/iterm2/issues">Gitlab</a> because Github doesn't support issue attachments.
+The differences from upstream iTerm2 are:
 
+* Adds ENQ answerback string, currently hard coded to "Aljex_iTerm2\n".
+* Adds OSC 200 escape sequence to launch urls & files.

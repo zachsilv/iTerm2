@@ -25,16 +25,16 @@
     self = [super initWithWindowNibName:@"AboutWindow"];
     if (self) {
         NSDictionary *myDict = [[NSBundle bundleForClass:[self class]] infoDictionary];
-        NSString *versionString = [NSString stringWithFormat: @"Build %@\n\n",
+        NSString *versionString = [NSString stringWithFormat: @"Build %@\n",
                                    myDict[(NSString *)kCFBundleVersionKey]];
 
-        NSAttributedString *webAString = [self attributedStringWithLinkToURL:@"https://iterm2.com/"
+        NSAttributedString *webAString = [self attributedStringWithLinkToURL:@"http://www.aljex.com/"
                                                                        title:@"Home Page\n"];
         NSAttributedString *bugsAString =
-                [self attributedStringWithLinkToURL:@"https://iterm2.com/bugs"
-                                              title:@"Report a bug\n\n"];
+                [self attributedStringWithLinkToURL:@"http://github.com/aljex/iTerm2"
+                                              title:@"Source\n"];
         NSAttributedString *creditsAString =
-                [self attributedStringWithLinkToURL:@"https://iterm2.com/credits"
+                [self attributedStringWithLinkToURL:@"http://iterm2.com/credits"
                                               title:@"Credits"];
 
         NSDictionary *linkTextViewAttributes = @{ NSUnderlineStyleAttributeName: @(NSSingleUnderlineStyle),

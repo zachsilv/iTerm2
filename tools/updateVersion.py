@@ -20,7 +20,7 @@ if os.environ["CONFIGURATION"] == "Development":
         revision = "git.unknown"
         for line in output.split("\n"):
             if len(line.strip()) > 0:
-                revision = "git." + line.strip()[:10]
+                revision = "git." + line.strip()[:10] + "-Aljex"
                 break
 
 elif os.environ["CONFIGURATION"] == "Nightly":
