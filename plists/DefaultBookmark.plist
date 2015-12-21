@@ -224,7 +224,7 @@
 	<key>Blur</key>
 	<false/>
 	<key>Character Encoding</key>
-	<integer>4</integer>
+	<integer>1</integer>
 	<key>Close Sessions On End</key>
 	<true/>
 	<key>Columns</key>
@@ -543,9 +543,9 @@
 	<key>Ambiguous Double Width</key>
 	<false/>
 	<key>Non Ascii Font</key>
-	<string>Monaco 12</string>
+	<string>AndaleMono 14</string>
 	<key>Normal Font</key>
-	<string>Monaco 12</string>
+	<string>AndaleMono 14</string>
 	<key>Rows</key>
 	<integer>25</integer>
 	<key>Scrollback Lines</key>
@@ -559,7 +559,7 @@
 	<key>Sync Title</key>
 	<false/>
 	<key>Terminal Type</key>
-	<string>xterm</string>
+	<string>linux</string>
 	<key>Transparency</key>
 	<real>0.0</real>
 	<key>Unlimited Scrollback</key>

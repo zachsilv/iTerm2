@@ -1359,8 +1359,10 @@ DQ
                 <outlet property="_autoHideTmuxClientSession" destination="6366" id="V9B-um-JRL"/>
                 <outlet property="_autoSaveOnQuit" destination="tYA-B3-SU5" id="9Yr-NX-xsX"/>
                 <outlet property="_browseCustomFolder" destination="5618" id="0Ty-gp-K5Q"/>
+<!--
                 <outlet property="_checkTestRelease" destination="5049" id="mCk-NA-PO2"/>
                 <outlet property="_checkUpdate" destination="5048" id="Oi0-3Y-fu1"/>
+-->
                 <outlet property="_confirmClosingMultipleSessions" destination="1996" id="1wi-R8-LGb"/>
                 <outlet property="_copyLastNewline" destination="5747" id="y4f-IT-rUT"/>
                 <outlet property="_customFolderTextFieldCell" destination="5617" id="67L-rS-bTT"/>
@@ -4550,10 +4552,12 @@ DQ
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+<!--
                     <connections>
                         <action selector="settingChanged:" target="9Se-ld-UJa" id="eVv-Yn-zdl"/>
                         <outlet property="nextKeyView" destination="5048" id="uHG-f2-Hoi"/>
                     </connections>
+-->
                 </button>
                 <textField verticalHuggingPriority="750" id="5053">
                     <rect key="frame" x="18" y="225" width="130" height="17"/>

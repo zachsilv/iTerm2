@@ -583,7 +583,7 @@
       <key>Destination</key>
       <string>Character Encoding</string>
       <key>Default</key>
-      <integer>4</integer>
+      <integer>1</integer>
     </dict>
     <dict>
       <key>Prefix</key>
@@ -715,7 +715,7 @@
       <key>Destination</key>
       <string>Terminal Type</string>
       <key>Default</key>
-      <string>xterm</string>
+      <string>linux</string>
     </dict>
     <dict>
       <key>Prefix</key>

@@ -385,7 +385,7 @@
                                              ofType:@"plist"];
     NSDictionary* presetsDict = [NSDictionary dictionaryWithContentsOfFile: plistFile];
     [aDict addEntriesFromDictionary:presetsDict];
-    [aDict setObject:@"xterm-256color" forKey:KEY_TERMINAL_TYPE];
+    [aDict setObject:@"linux" forKey:KEY_TERMINAL_TYPE];
 
     NSString *aName;
 
