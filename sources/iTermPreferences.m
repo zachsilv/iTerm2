@@ -27,8 +27,10 @@ NSString *const kPreferenceKeyPromptOnQuit = @"PromptOnQuit";
 NSString *const kPreferenceKeyInstantReplayMemoryMegabytes = @"IRMemory";
 NSString *const kPreferenceKeySavePasteAndCommandHistory = @"SavePasteHistory";  // The key predates command history
 NSString *const kPreferenceKeyAddBonjourHostsToProfiles = @"EnableRendezvous";  // The key predates the name Bonjour
+/*
 NSString *const kPreferenceKeyCheckForUpdatesAutomatically = @"SUEnableAutomaticChecks";  // Key defined by Sparkle
 NSString *const kPreferenceKeyCheckForTestReleases = @"CheckTestRelease";
+ */
 NSString *const kPreferenceKeyLoadPrefsFromCustomFolder = @"LoadPrefsFromCustomFolder";
 
 // This pref was originally a suppressable warning plus a user default, which is why it's in two
@@ -184,8 +186,10 @@ static NSMutableDictionary *gObservers;
                   kPreferenceKeyInstantReplayMemoryMegabytes: @4,
                   kPreferenceKeySavePasteAndCommandHistory: @NO,
                   kPreferenceKeyAddBonjourHostsToProfiles: @NO,
+                  /*
                   kPreferenceKeyCheckForUpdatesAutomatically: @NO,
                   kPreferenceKeyCheckForTestReleases: @NO,
+                   */
                   kPreferenceKeyLoadPrefsFromCustomFolder: @NO,
                   kPreferenceKeyNeverRemindPrefsChangesLostForFileHaveSelection: @NO,
                   kPreferenceKeyNeverRemindPrefsChangesLostForFileSelection: @0,

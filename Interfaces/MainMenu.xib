@@ -1011,7 +1011,7 @@ DQ
             </connections>
         </customObject>
         <customObject id="266" userLabel="Font Manager" customClass="NSFontManager"/>
-        <customObject id="879" userLabel="SUUpdater" customClass="SUUpdater"/>
+<!--        <customObject id="879" userLabel="SUUpdater" customClass="SUUpdater"/> -->
         <menuItem title="Item" id="Zmu-o3-jVG">
             <modifierMask key="keyEquivalentModifierMask"/>
         </menuItem>

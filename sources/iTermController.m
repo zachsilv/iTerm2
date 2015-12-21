@@ -1376,6 +1376,7 @@ static BOOL initDone = NO;
     }
 }
 
+/*
 - (void)refreshSoftwareUpdateUserDefaults {
     BOOL checkForTestReleases = [iTermPreferences boolForKey:kPreferenceKeyCheckForTestReleases];
     NSString *appCast = checkForTestReleases ?
@@ -1390,6 +1391,7 @@ static BOOL initDone = NO;
     [[NSUserDefaults standardUserDefaults] setObject:@"iTerm"
                                               forKey:@"SUFeedAlternateAppNameKey"];
 }
+ */
 
 - (BOOL)selectionRespectsSoftBoundaries {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kSelectionRespectsSoftBoundariesKey];

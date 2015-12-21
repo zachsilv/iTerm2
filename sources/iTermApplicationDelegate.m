@@ -175,11 +175,13 @@ static BOOL hasBecomeActive = NO;
     [iTermToolbeltView populateMenu:toolbeltMenu];
 
     // Set the Appcast URL and when it changes update it.
+    /*
     [[iTermController sharedInstance] refreshSoftwareUpdateUserDefaults];
     [iTermPreferences addObserverForKey:kPreferenceKeyCheckForTestReleases
                                   block:^(id before, id after) {
                                       [[iTermController sharedInstance] refreshSoftwareUpdateUserDefaults];
                                   }];
+     */
 }
 
 // This performs startup activities as long as they haven't been run before.
