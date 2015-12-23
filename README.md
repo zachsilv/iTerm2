@@ -6,6 +6,4 @@ The differences from upstream iTerm2 are:
 * Adds OSC 200 escape sequence to launch urls & files.
 * Built-in emulation defaults configured for Aljex.
 
-The ultimate purpose of this fork is to provide a Mac OSX version of "Aljex Client PRO", based on iTerm2 in the same way that AljexTerminal is based on PuTTY.  
-http://github.com/aljex/aljex-client  
-http://www.aljex.com/misc/Aljex_Client_7.5.6.exe
+The ultimate purpose of this fork is to provide a Mac OSX version of <a href="http://www.aljex.com/misc/Aljex_Client_7.5.6.exe">Aljex Client PRO</a>, based on iTerm2 in the same way that <a href="http://github.com/aljex/aljex-client">AljexTerminal</a> is based on <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>.
