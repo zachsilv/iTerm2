@@ -132,7 +132,7 @@
 
 // Set Software Update (Sparkle) user defaults keys to reflect settings in
 // iTerm2's user defaults.
-- (void)refreshSoftwareUpdateUserDefaults;
+//- (void)refreshSoftwareUpdateUserDefaults;
 
 - (void)addRestorableSession:(iTermRestorableSession *)session;
 - (void)removeSessionFromRestorableSessions:(PTYSession *)session;
