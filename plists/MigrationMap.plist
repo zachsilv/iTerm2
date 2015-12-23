@@ -583,7 +583,7 @@
       <key>Destination</key>
       <string>Character Encoding</string>
       <key>Default</key>
-      <integer>4</integer>
+      <integer>2147484688</integer>
     </dict>
     <dict>
       <key>Prefix</key>

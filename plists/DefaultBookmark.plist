@@ -224,7 +224,7 @@
 	<key>Blur</key>
 	<false/>
 	<key>Character Encoding</key>
-	<integer>4</integer>
+	<integer>2147484688</integer>
 	<key>Close Sessions On End</key>
 	<true/>
 	<key>Columns</key>
@@ -551,7 +551,7 @@
 	<key>Scrollback Lines</key>
 	<integer>1000</integer>
 	<key>Send Code When Idle</key>
-	<false/>
+	<true/>
 	<key>Shortcut</key>
 	<string></string>
 	<key>Silence Bell</key>
