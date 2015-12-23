@@ -195,7 +195,7 @@ static BOOL initDone = NO;
     iTermApplicationDelegate *itad =
         (iTermApplicationDelegate *)[[iTermApplication sharedApplication] delegate];
     return (sessionsWillRestore &&
-            (itad.sparkleRestarting || ![iTermAdvancedSettingsModel killJobsInServersOnQuit]));
+           /* (itad.sparkleRestarting || */ ![iTermAdvancedSettingsModel killJobsInServersOnQuit])/*)*/;
 }
 
 - (void)dealloc {

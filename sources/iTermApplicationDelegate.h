@@ -52,7 +52,7 @@ int DebugLogImpl(const char *file, int line, const char *function, NSString* val
 @property(nonatomic, readonly) NSString *markAlertAction;
 
 // Is Sparkle in the process of restarting us?
-@property(nonatomic, readonly) BOOL sparkleRestarting;
+//@property(nonatomic, readonly) BOOL sparkleRestarting;
 
 @property(nonatomic, readonly) BOOL useBackgroundPatternIndicator;
 @property(nonatomic, readonly) BOOL warnBeforeMultiLinePaste;
