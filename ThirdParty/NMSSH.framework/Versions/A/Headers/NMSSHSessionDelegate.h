@@ -1,7 +1,5 @@
 #import "NMSSH.h"
 
-@class NMSSHSession;
-
 /**
  Protocol for registering to receive messages from an active NMSSHSession.
  */

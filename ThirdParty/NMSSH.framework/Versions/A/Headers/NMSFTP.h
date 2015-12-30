@@ -1,7 +1,5 @@
 #import "NMSSH.h"
 
-@class NMSSHSession, NMSFTPFile;
-
 /**
  NMSFTP provides functionality for working with SFTP servers.
  */
@@ -12,9 +10,6 @@
 
 /** Property that keeps track of connection status to the server */
 @property (nonatomic, readonly, getter = isConnected) BOOL connected;
-
-/** Property that set/get read buffer size */
-@property (nonatomic) NSUInteger bufferSize;
 
 ///-----------------------------------------------------------------------------
 /// @name Initializer
