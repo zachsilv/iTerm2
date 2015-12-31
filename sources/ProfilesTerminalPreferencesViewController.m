@@ -75,10 +75,7 @@
                            key:KEY_CHARACTER_ENCODING
                           type:kPreferenceInfoTypeUPopup];
     info.onUpdate = ^BOOL() {
-        // Unfortunately, character encoding should have been stored as a NSUInteger all along :(
-        // See notes in PTYSession for more details.
         NSUInteger tag = [self uintForKey:info.key];
-        //tag &= 0xffffffff;
         [_characterEncoding selectItemWithTag:tag];
         return YES;
     };

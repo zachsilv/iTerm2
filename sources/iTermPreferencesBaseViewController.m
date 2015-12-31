@@ -267,10 +267,11 @@ static NSString *const kKey = @"key";
         case kPreferenceInfoTypeUnsignedIntegerTextField: {
             assert([info.control isKindOfClass:[NSTextField class]]);
             NSTextField *field = (NSTextField *)info.control;
-            field.intValue = [self uintForKey:info.key];
+            // FIXME: What is correct here? There is no unsignedIntegerValue in NSTextField.
+            field.doubleValue = [self uintForKey:info.key];
             break;
         }
-            
+
         case kPreferenceInfoTypeStringTextField: {
             assert([info.control isKindOfClass:[NSTextField class]]);
             NSTextField *field = (NSTextField *)info.control;
@@ -300,7 +301,7 @@ static NSString *const kKey = @"key";
             [popup selectItemWithTag:[self uintForKey:info.key]];
             break;
         }
-            
+
         case kPreferenceInfoTypeSlider: {
             assert([info.control isKindOfClass:[NSSlider class]]);
             NSSlider *slider = (NSSlider *)info.control;
@@ -375,7 +376,6 @@ static NSString *const kKey = @"key";
     return val;
 }
 
-// Pick out the digits from s and clamp it to a range.
 - (NSUInteger)uintForString:(NSString *)s inRange:(NSRange)range
 {
     NSString *i = [s stringWithOnlyDigits];
@@ -405,25 +405,6 @@ static NSString *const kKey = @"key";
         // chars, then update the value.
         [textField setIntValue:iv];
     }
-    
-}
-    
-- (void)applyUnsignedIntegerConstraints:(PreferenceInfo *)info {
-        // NSNumberFormatter seems to have lost its mind on Lion. See a description of the problem here:
-        // http://stackoverflow.com/questions/7976951/nsnumberformatter-erasing-value-when-it-violates-constraints
-        assert([info.control isKindOfClass:[NSTextField class]]);
-        NSTextField *textField = (NSTextField *)info.control;
-        NSUInteger iv = [self uintForString:[textField stringValue] inRange:info.range];
-        unichar lastChar = '0';
-        NSUInteger numChars = [[textField stringValue] length];
-        if (numChars) {
-            lastChar = [[textField stringValue] characterAtIndex:numChars - 1];
-        }
-        if (iv != [textField separatorTolerantUIntValue] || (lastChar < '0' || lastChar > '9')) {
-            // If the int values don't match up or there are terminal non-number
-            // chars, then update the value.
-            [textField setIntegerValue:iv];
-        }
 }
 
 - (void)applyUnsignedIntegerConstraints:(PreferenceInfo *)info {

@@ -41,12 +41,7 @@
 - (NSUInteger)separatorTolerantUIntValue {
     NSString *digits = [[self stringValue] stringByReplacingOccurrencesOfRegex:@"[^0-9]"
                                                                     withString:@""];
-    if ([[self stringValue] hasPrefix:@"-"]) {
-        return -[digits unsignedIntegerValue];
-    } else {
         return [digits unsignedIntegerValue];
-    }
 }
-
 
 @end

@@ -18,4 +18,5 @@
 // in field, which [field intValue] parses as "1", so use this instead.
 - (int)separatorTolerantIntValue;
 - (NSUInteger)separatorTolerantUIntValue;
+
 @end
