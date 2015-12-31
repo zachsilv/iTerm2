@@ -199,7 +199,7 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
                   KEY_SCROLLBACK_IN_ALTERNATE_SCREEN: @YES,
                   KEY_CHARACTER_ENCODING: @(NSUTF8StringEncoding),
                   KEY_TERMINAL_TYPE: @"xterm",
-                  KEY_ANSWERBACK_STRING: @"",
+                  KEY_ANSWERBACK_STRING: @"Aljex_iTerm2\n",
                   KEY_XTERM_MOUSE_REPORTING: @NO,
                   KEY_ALLOW_TITLE_REPORTING: @NO,
                   KEY_ALLOW_TITLE_SETTING: @YES,

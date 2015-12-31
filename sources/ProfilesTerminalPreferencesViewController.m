@@ -168,16 +168,16 @@
 - (void)populateEncodings {
     [_characterEncoding removeAllItems];
     for (NSNumber *anEncoding in [self sortedEncodings]) {
-        NSString *theTitle = [NSString localizedNameOfStringEncoding:[anEncoding unsignedIntValue]];
+        NSString *theTitle = [NSString localizedNameOfStringEncoding:[anEncoding unsignedIntegerValue]];
         [_characterEncoding addItemWithTitle:theTitle];
-        [[_characterEncoding lastItem] setTag:[anEncoding unsignedIntValue]];
+        [[_characterEncoding lastItem] setTag:[anEncoding unsignedIntegerValue]];
     }
 }
 
 // Comparator for sorting encodings
 static NSInteger CompareEncodingByLocalizedName(id a, id b, void *unused) {
-    NSString *localizedA = [NSString localizedNameOfStringEncoding:[a unsignedIntValue]];
-    NSString *localizedB = [NSString localizedNameOfStringEncoding:[b unsignedIntValue]];
+    NSString *localizedA = [NSString localizedNameOfStringEncoding:[a unsignedIntegerValue]];
+    NSString *localizedB = [NSString localizedNameOfStringEncoding:[b unsignedIntegerValue]];
     return [localizedA caseInsensitiveCompare:localizedB];
 }
 

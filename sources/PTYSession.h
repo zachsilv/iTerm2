@@ -139,7 +139,7 @@ typedef enum {
 // The value of the $TERM environment var.
 @property(nonatomic, copy) NSString *termVariable;
 
-// String to send and answerback response to ENQ.
+// String to send an answerback response to ENQ.
 @property(nonatomic, copy) NSString *answerBackString;
 
 // The value of the $COLORFGBG environment var.

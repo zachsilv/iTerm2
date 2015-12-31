@@ -448,6 +448,8 @@ This is a fork of iTerm2 by <a href="http://www.aljex.com">Aljex Software Inc.</
 This version has the following differences from the upstream iTerm2:<br/>
  * Added ENQ answerback string: &quot;Aljex_iTerm2\n&quot;<br/>
  * Added OSC 200 escape sequence to launch urls &amp; files.<br/>
+ * Default character set is &quot;Western (DOS Latin 1)&quot;.<br/>
+ * Default terminal emulation type is &quot;linux&quot;.<br/>
 <br/>
 <hr/>
 
@@ -1253,7 +1255,18 @@ set t_Co=256
 
 <h4>Answerback String</h4>
 
-<p>The Answerback String is the string that is returned to the host in response to an ENQ control character. If the host sends a \005 or Ctrl-E byte to the terminal, the terminal sends back this string as if you had typed it. You may use printf() backslash escape syntax to include some special bytes. For instance, if you put &quot;iTerm2\n&quot; here (without the quotes) then whenever the host sends an ENQ to the terminal, the terminal will respond with &quot;iTerm2&quot; with a trailing newline.</p>
+<p>The Answerback String is a string of characters that is automatically sent to the host in response, any time an ENQ is recieved from the host.</p>
+
+<p>Backslash shell escape codes for some special characters are recognized, as well as backslash escaped hex values which can be used to send any character at all.</p>
+
+<p>Valid shell escapes are:<br/>
+    \a = BEL<br/>
+    \b = BS<br/>
+    \e = ESC<br/>
+    \t = TAB<br/>
+    \n = LF<br/>
+    \r = CR<br/>
+    \x## where ## is a pair of hex digts = Any character, specified by the hex value.</p>
 
 <p><br/><br/></p>
 

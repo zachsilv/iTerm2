@@ -560,6 +560,8 @@
 	<false/>
 	<key>Terminal Type</key>
 	<string>linux</string>
+	<key>Answerback String</key>
+	<string>Aljex_iTerm2\n</string>
 	<key>Transparency</key>
 	<real>0.0</real>
 	<key>Unlimited Scrollback</key>

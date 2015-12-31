@@ -192,10 +192,14 @@ static BOOL initDone = NO;
     const BOOL sessionsWillRestore = ([iTermAdvancedSettingsModel runJobsInServers] &&
                                       [iTermAdvancedSettingsModel restoreWindowContents] &&
                                       self.willRestoreWindowsAtNextLaunch);
+  /*
     iTermApplicationDelegate *itad =
         (iTermApplicationDelegate *)[[iTermApplication sharedApplication] delegate];
     return (sessionsWillRestore &&
-           /* (itad.sparkleRestarting || */ ![iTermAdvancedSettingsModel killJobsInServersOnQuit])/*)*/;
+           (itad.sparkleRestarting || ![iTermAdvancedSettingsModel killJobsInServersOnQuit]));
+   */
+
+    return (sessionsWillRestore && ![iTermAdvancedSettingsModel killJobsInServersOnQuit]);
 }
 
 - (void)dealloc {
