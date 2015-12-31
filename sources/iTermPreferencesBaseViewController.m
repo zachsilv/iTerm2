@@ -426,6 +426,21 @@ static NSString *const kKey = @"key";
         }
 }
 
+- (void)applyUnsignedIntegerConstraints:(PreferenceInfo *)info {
+    assert([info.control isKindOfClass:[NSTextField class]]);
+    NSTextField *textField = (NSTextField *)info.control;
+    NSUInteger iv = [self uintForString:[textField stringValue] inRange:info.range];
+    unichar lastChar = '0';
+    int numChars = [[textField stringValue] length];
+    if (numChars) {
+        lastChar = [[textField stringValue] characterAtIndex:numChars - 1];
+    }
+    if (iv != [textField separatorTolerantUIntValue] || (lastChar < '0' || lastChar > '9')) {
+        // FIXME: What is correct here? There is no "setUnsignedIntegerValue" in NSTextField
+        [textField setDoubleValue:iv];
+    }
+}
+
 #pragma mark - NSControl Delegate Informal Protocol
 
 // This is a notification signature but it gets called because we're the delegate of text fields.
