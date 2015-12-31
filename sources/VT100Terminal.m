@@ -31,6 +31,7 @@ NSString *const kSavedCursorOriginKey = @"Origin";
 NSString *const kSavedCursorWraparoundKey = @"Wraparound";
 
 NSString *const kTerminalStateTermTypeKey = @"Term Type";
+NSString *const kTerminalStateAnswerBackStringKey = @"Answerback String";
 NSString *const kTerminalStateStringEncodingKey = @"String Encoding";
 NSString *const kTerminalStateCanonicalEncodingKey = @"Canonical String Encoding";
 NSString *const kTerminalStateReportFocusKey = @"Report Focus";
@@ -267,6 +268,18 @@ static const int kMaxScreenRows = 4096;
     self.isAnsi = [_termType rangeOfString:@"ANSI"
                                    options:NSCaseInsensitiveSearch | NSAnchoredSearch ].location !=  NSNotFound;
     [delegate_ terminalTypeDidChange];
+}
+
+- (void)setAnswerBackString:(NSString *)s
+{
+    s = [s stringByReplacingEscapedChar:'a' withString:@"\x07"];
+    s = [s stringByReplacingEscapedChar:'b' withString:@"\x08"];
+    s = [s stringByReplacingEscapedChar:'e' withString:@"\x1b"];
+    s = [s stringByReplacingEscapedChar:'n' withString:@"\n"];
+    s = [s stringByReplacingEscapedChar:'r' withString:@"\r"];
+    s = [s stringByReplacingEscapedChar:'t' withString:@"\t"];
+    s = [s stringByReplacingEscapedHexValuesWithChars];
+    _answerBackString = [s copy];
 }
 
 - (void)setForeground24BitColor:(NSColor *)color {
@@ -2378,6 +2391,7 @@ static const int kMaxScreenRows = 4096;
 - (NSDictionary *)stateDictionary {
     NSDictionary *dict =
         @{ kTerminalStateTermTypeKey: self.termType ?: [NSNull null],
+           kTerminalStateAnswerBackStringKey: self.answerBackString ?: [NSNull null],
            kTerminalStateStringEncodingKey: @(self.encoding),
            kTerminalStateCanonicalEncodingKey: @(self.canonicalEncoding),
            kTerminalStateReportFocusKey: @(self.reportFocus),
@@ -2413,6 +2427,7 @@ static const int kMaxScreenRows = 4096;
         return;
     }
     self.termType = dict[kTerminalStateTermTypeKey];
+    self.answerBackString = dict[kTerminalStateAnswerBackStringKey];
     self.encoding = [dict[kTerminalStateStringEncodingKey] unsignedIntegerValue];
     self.canonicalEncoding = [dict[kTerminalStateCanonicalEncodingKey] unsignedIntegerValue];
     self.reportFocus = [dict[kTerminalStateReportFocusKey] boolValue];

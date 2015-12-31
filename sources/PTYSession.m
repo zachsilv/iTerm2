@@ -205,6 +205,8 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     VT100Terminal *_terminal;
 
     NSString *_termVariable;
+    
+    NSString *_answerBackString;
 
     // Has the underlying connection been closed?
     BOOL _exited;
@@ -2705,6 +2707,7 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     
     [self setEncoding:[iTermProfilePreferences uintForKey:KEY_CHARACTER_ENCODING inProfile:aDict]];
     [self setTermVariable:[iTermProfilePreferences stringForKey:KEY_TERMINAL_TYPE inProfile:aDict]];
+    [self setAnswerBackString:[iTermProfilePreferences stringForKey:KEY_ANSWERBACK_STRING inProfile:aDict]];
     [self setAntiIdleCode:[iTermProfilePreferences intForKey:KEY_IDLE_CODE inProfile:aDict]];
     [self setAntiIdle:[iTermProfilePreferences boolForKey:KEY_SEND_CODE_WHEN_IDLE inProfile:aDict]];
     [self setAutoClose:[iTermProfilePreferences boolForKey:KEY_CLOSE_SESSIONS_ON_END inProfile:aDict]];
@@ -2975,6 +2978,13 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     [_termVariable autorelease];
     _termVariable = [termVariable copy];
     [_terminal setTermType:_termVariable];
+}
+
+- (void)setAnswerBackString:(NSString *)s
+{
+    [_answerBackString autorelease];
+    _answerBackString = [s copy];
+    [_terminal setAnswerBackString:_answerBackString];
 }
 
 - (void)setView:(SessionView*)newView
