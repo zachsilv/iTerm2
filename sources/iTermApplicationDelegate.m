@@ -59,7 +59,6 @@
 #import "PTYTab.h"
 #import "PTYTextView.h"
 #import "PTYWindow.h"
-//#import "Sparkle/SUUpdater.h"
 #import "ToastWindowController.h"
 #import "VT100Terminal.h"
 
@@ -150,8 +149,6 @@ static BOOL hasBecomeActive = NO;
     // If the advanced pref to turn off app nap is enabled, then we hold a reference to this
     // NSProcessInfo-provided object to make the system think we're doing something important.
     id<NSObject> _appNapStoppingActivity;
-
-    //BOOL _sparkleRestarting;  // Is Sparkle about to restart the app?
 }
 
 // NSApplication delegate methods
@@ -162,7 +159,7 @@ static BOOL hasBecomeActive = NO;
     }
 
     // set the TERM_PROGRAM environment variable
-    putenv("TERM_PROGRAM=iTerm.app");
+    putenv("TERM_PROGRAM=Aljex_iTerm2.app");
 
     [self buildScriptMenu:nil];
 
@@ -173,15 +170,6 @@ static BOOL hasBecomeActive = NO;
     [ITAddressBookMgr sharedInstance];
 
     [iTermToolbeltView populateMenu:toolbeltMenu];
-
-    // Set the Appcast URL and when it changes update it.
-    /*
-    [[iTermController sharedInstance] refreshSoftwareUpdateUserDefaults];
-    [iTermPreferences addObserverForKey:kPreferenceKeyCheckForTestReleases
-                                  block:^(id before, id after) {
-                                      [[iTermController sharedInstance] refreshSoftwareUpdateUserDefaults];
-                                  }];
-     */
 }
 
 // This performs startup activities as long as they haven't been run before.
@@ -400,12 +388,7 @@ static BOOL hasBecomeActive = NO;
                                                            selector:@selector(workspaceSessionDidResignActive:)
                                                                name:NSWorkspaceSessionDidResignActiveNotification
                                                              object:nil];
-/*
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(sparkleWillRestartApp:)
-                                                 name:SUUpdaterWillRestartNotification
-                                               object:nil];
-*/
+
     if ([iTermAdvancedSettingsModel runJobsInServers]) {
         [PseudoTerminalRestorer setRestorationCompletionBlock:^{
             [[iTermOrphanServerAdopter sharedInstance] openWindowWithOrphans];
@@ -420,13 +403,7 @@ static BOOL hasBecomeActive = NO;
 - (void)workspaceSessionDidResignActive:(NSNotification *)notification {
     _workspaceSessionActive = NO;
 }
-/*
-- (void)sparkleWillRestartApp:(NSNotification *)notification {
-    [NSApp invalidateRestorableState];
-    [[NSApp windows] makeObjectsPerformSelector:@selector(invalidateRestorableState)];
-    _sparkleRestarting = YES;
-}
-*/
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSNotification *)theNotification {
     DLog(@"applicationShouldTerminate:");
     NSArray *terminals;
@@ -453,7 +430,6 @@ static BOOL hasBecomeActive = NO;
         shouldShowAlert = YES;
     }
     if ([iTermAdvancedSettingsModel runJobsInServers] &&
-       // self.sparkleRestarting &&
         [iTermAdvancedSettingsModel restoreWindowContents] &&
         [[iTermController sharedInstance] willRestoreWindowsAtNextLaunch]) {
         // Nothing will be lost so just restart without asking.

@@ -193,11 +193,5 @@
 	<true/>
 	<key>OSAScriptingDefinition</key>
 	<string>iTerm2.sdef</string>
-	<key>SUFeedURLForFinal</key>
-	<string>http://raw.githubusercontent.com/aljex/iTerm2/Aljex/release.xml</string>
-	<key>SUFeedURLForTesting</key>
-	<string>http://raw.githubusercontent.com/aljex/iTerm2/Aljex/testing.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
 </dict>
 </plist>

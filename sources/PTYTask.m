@@ -139,7 +139,6 @@ setup_tty_param(struct termios* term,
         killpg(_childPid, SIGHUP);
     } else if (_serverChildPid) {
         // Kill a server-owned child.
-        // TODO: Don't want to do this when Sparkle is upgrading.
         killpg(_serverChildPid, SIGHUP);
     }
 
@@ -177,13 +176,6 @@ setup_tty_param(struct termios* term,
         _paused = paused;
     }
     // Start/stop selecting on our FD
-    [[TaskNotifier sharedInstance] unblock];
-}
-
-static void HandleSigChld(int n)
-{
-    // This is safe to do because write(2) is listed in the sigaction(2) man page
-    // as allowed in a signal handler.
     [[TaskNotifier sharedInstance] unblock];
 }
 
@@ -442,17 +434,6 @@ static int MyForkPty(int *amaster,
 
     setup_tty_param(&term, &win, width, height, isUTF8);
 
-    // Register a handler for the child death signal. There is some history here.
-    // Originally, a do-nothing handler was registered with the following comment:
-    //   We cannot ignore SIGCHLD because Sparkle (the software updater) opens a
-    //   Safari control which uses some buggy Netscape code that calls wait()
-    //   until it succeeds. If we wait() on its pid, that process locks because
-    //   it doesn't check if wait()'s failure is ECHLD. Instead of wait()ing here,
-    //   we reap our children when our select() loop sees that a pipes is broken.
-    // In response to bug 2903, wherein select() fails to return despite the file
-    // descriptor having EOF status, I changed the handler to unblock the task
-    // notifier.
-    signal(SIGCHLD, HandleSigChld);
     const char* argpath;
     argpath = [[progpath stringByStandardizingPath] UTF8String];
 

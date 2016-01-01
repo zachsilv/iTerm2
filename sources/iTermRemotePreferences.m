@@ -77,9 +77,7 @@
                              @"iTerm Version" ];
     return ![exemptKeys containsObject:key] &&
             ![key hasPrefix:@"NS"] &&
-            ![key hasPrefix:@"SU"] &&
-            ![key hasPrefix:@"NoSync"] &&
-            ![key hasPrefix:@"UK"];
+            ![key hasPrefix:@"NoSync"];
 }
 
 - (NSDictionary *)freshCopyOfRemotePreferences

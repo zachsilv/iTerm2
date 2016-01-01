@@ -39,7 +39,6 @@
 #import "PreferencePanel.h"
 #import "PseudoTerminal.h"
 #import "PTYWindow.h"
-#import "UKCrashReporter.h"
 #import "VT100Screen.h"
 #import "WindowArrangements.h"
 #import "iTerm.h"
@@ -146,8 +145,6 @@ static BOOL initDone = NO;
     self = [super init];
 
     if (self) {
-        UKCrashReporterCheckForCrash();
-
         runningApplicationClass_ = NSClassFromString(@"NSRunningApplication"); // 10.6
         // create the iTerm directory if it does not exist
         NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -192,12 +189,6 @@ static BOOL initDone = NO;
     const BOOL sessionsWillRestore = ([iTermAdvancedSettingsModel runJobsInServers] &&
                                       [iTermAdvancedSettingsModel restoreWindowContents] &&
                                       self.willRestoreWindowsAtNextLaunch);
-  /*
-    iTermApplicationDelegate *itad =
-        (iTermApplicationDelegate *)[[iTermApplication sharedApplication] delegate];
-    return (sessionsWillRestore &&
-           (itad.sparkleRestarting || ![iTermAdvancedSettingsModel killJobsInServersOnQuit]));
-   */
 
     return (sessionsWillRestore && ![iTermAdvancedSettingsModel killJobsInServersOnQuit]);
 }
@@ -207,15 +198,8 @@ static BOOL initDone = NO;
     [[HotkeyWindowController sharedInstance] saveHotkeyWindowState];
 
     if (self.shouldLeaveSessionsRunningOnQuit) {
-        // We don't want to kill running jobs. This can be for one of two reasons:
-        //
-        // 1. Sparkle is restarting the app. Because jobs are run in servers and window
-        //    restoration is on, we don't want to close term windows because that will
-        //    send SIGHUP to the job processes. Normally this path is taken during
-        //    a user-initiated quit, so we want the jobs killed, but not in this case.
-        // 2. The user has set a pref to not kill jobs on quit.
-        //
-        // In either case, we only get here if we're pretty sure everything will get restored
+        // We don't want to kill running jobs.
+        // We only get here if we're pretty sure everything will get restored
         // nicely.
         [terminalWindows autorelease];
     } else {
@@ -1379,23 +1363,6 @@ static BOOL initDone = NO;
         DebugLog([[[term window] contentView] iterm_recursiveDescription]);
     }
 }
-
-/*
-- (void)refreshSoftwareUpdateUserDefaults {
-    BOOL checkForTestReleases = [iTermPreferences boolForKey:kPreferenceKeyCheckForTestReleases];
-    NSString *appCast = checkForTestReleases ?
-        [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURLForTesting"] :
-        [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURLForFinal"];
-    [[NSUserDefaults standardUserDefaults] setObject:appCast forKey:@"SUFeedURL"];
-    // Allow Sparkle to update from a zip file containing an "iTerm" directory,
-    // even though our bundle name is now "iTerm2". I had to add this feature
-    // to my fork of Sparkle so I could change the app's name without breaking
-    // auto-update. https://github.com/gnachman/Sparkle, commit
-    // bd6a8df6e63b843f1f8aff79f40bd70907761a99.
-    [[NSUserDefaults standardUserDefaults] setObject:@"iTerm"
-                                              forKey:@"SUFeedAlternateAppNameKey"];
-}
- */
 
 - (BOOL)selectionRespectsSoftBoundaries {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kSelectionRespectsSoftBoundariesKey];
