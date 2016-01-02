@@ -270,15 +270,8 @@ static const int kMaxScreenRows = 4096;
     [delegate_ terminalTypeDidChange];
 }
 
-- (void)setAnswerBackString:(NSString *)s
-{
-    s = [s stringByReplacingEscapedChar:'a' withString:@"\x07"];
-    s = [s stringByReplacingEscapedChar:'b' withString:@"\x08"];
-    s = [s stringByReplacingEscapedChar:'e' withString:@"\x1b"];
-    s = [s stringByReplacingEscapedChar:'n' withString:@"\n"];
-    s = [s stringByReplacingEscapedChar:'r' withString:@"\r"];
-    s = [s stringByReplacingEscapedChar:'t' withString:@"\t"];
-    s = [s stringByReplacingEscapedHexValuesWithChars];
+- (void)setAnswerBackString:(NSString *)s {
+    s = [s stringByExpandingVimSpecialCharacters];
     _answerBackString = [s copy];
 }
 
@@ -1247,7 +1240,7 @@ static const int kMaxScreenRows = 4096;
 
         //  VT100 CC
         case VT100CC_ENQ:
-            [delegate_ terminalSendReport:[_answerBackString dataUsingEncoding:NSUTF8StringEncoding]];
+            [delegate_ terminalSendReport:[_answerBackString dataUsingEncoding:self.encoding]];
             break;
         case VT100CC_BEL:
             [delegate_ terminalRingBell];
