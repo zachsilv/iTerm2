@@ -176,16 +176,12 @@ static NSMutableDictionary *gObservers;
         dict = @{ kPreferenceKeyOpenBookmark: @NO,
                   kPreferenceKeyOpenArrangementAtStartup: @NO,
                   kPreferenceKeyOpenNoWindowsAtStartup: @NO,
-                  kPreferenceKeyQuitWhenAllWindowsClosed: @NO,
+                  kPreferenceKeyQuitWhenAllWindowsClosed: @YES,
                   kPreferenceKeyConfirmClosingMultipleTabs: @YES,
                   kPreferenceKeyPromptOnQuit: @YES,
                   kPreferenceKeyInstantReplayMemoryMegabytes: @4,
                   kPreferenceKeySavePasteAndCommandHistory: @NO,
                   kPreferenceKeyAddBonjourHostsToProfiles: @NO,
-                  /*
-                  kPreferenceKeyCheckForUpdatesAutomatically: @NO,
-                  kPreferenceKeyCheckForTestReleases: @NO,
-                   */
                   kPreferenceKeyLoadPrefsFromCustomFolder: @NO,
                   kPreferenceKeyNeverRemindPrefsChangesLostForFileHaveSelection: @NO,
                   kPreferenceKeyNeverRemindPrefsChangesLostForFileSelection: @0,

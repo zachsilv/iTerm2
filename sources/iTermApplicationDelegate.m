@@ -315,17 +315,17 @@ static BOOL hasBecomeActive = NO;
 }
 
 - (void)checkForQuietMode {
-    if ([self quietFileExists]) {
+/*    if ([self quietFileExists]) {
         NSError *error = nil;
         [[NSFileManager defaultManager] removeItemAtPath:[self quietFileName]
                                                    error:&error];
         if (error) {
             NSLog(@"Failed to remove %@: %@; not launching in quiet mode", [self quietFileName], error);
         } else {
-            NSLog(@"%@ exists, launching in quiet mode", [self quietFileName]);
+            NSLog(@"%@ exists, launching in quiet mode", [self quietFileName]); */
             quiet_ = YES;
-        }
-    }
+/*        }
+    } */
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {

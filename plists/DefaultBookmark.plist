@@ -227,6 +227,8 @@
 	<integer>2147484688</integer>
 	<key>Close Sessions On End</key>
 	<true/>
+	<key>Session Close Undo Timeout</key>
+	<integer>0</integer>
 	<key>Columns</key>
 	<integer>80</integer>
 	<key>Command</key>

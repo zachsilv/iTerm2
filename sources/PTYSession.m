@@ -1391,32 +1391,6 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     [[[iTermController sharedInstance] currentTerminal] selectPaneDown:nil];
 }
 
-- (void)_maybeWarnAboutShortLivedSessions
-{
-    if ([(iTermApplicationDelegate *)[NSApp delegate] isApplescriptTestApp]) {
-        // The applescript test driver doesn't care about short-lived sessions.
-        return;
-    }
-    if ([[NSDate date] timeIntervalSinceDate:_creationDate] < 3) {
-        NSString* theName = [_profile objectForKey:KEY_NAME];
-        NSString *guid = _profile[KEY_GUID];
-        if (_originalProfile && [_originalProfile[KEY_GUID] length]) {
-            // Divorced sessions should use the original session's GUID to determine
-            // if a warning is appropriate.
-            guid = _originalProfile[KEY_GUID];
-        }
-        NSString* theKey = [NSString stringWithFormat:@"NeverWarnAboutShortLivedSessions_%@", guid];
-        NSString *theTitle = [NSString stringWithFormat:
-                              @"A session ended very soon after starting. Check that the command "
-                              @"in profile \"%@\" is correct.",
-                              theName];
-        [iTermWarning showWarningWithTitle:theTitle
-                                   actions:@[ @"OK" ]
-                                identifier:theKey
-                               silenceable:kiTermWarningTypePermanentlySilenceable];
-    }
-}
-
 - (iTermRestorableSession *)restorableSession {
     iTermRestorableSession *restorableSession = [[[iTermRestorableSession alloc] init] autorelease];
     restorableSession.sessions = @[ self ];
@@ -1450,9 +1424,6 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
 
     if ([[self textview] isFindingCursor]) {
         [[self textview] endFindCursor];
-    }
-    if (_exited) {
-        [self _maybeWarnAboutShortLivedSessions];
     }
     if (self.tmuxMode == TMUX_CLIENT) {
         assert([_tab tmuxWindow] >= 0);
@@ -3081,7 +3052,7 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     }
 
     if (set) {
-        NSTimeInterval period = MIN(60, [iTermAdvancedSettingsModel antiIdleTimerPeriod]);
+        NSTimeInterval period = MIN(0.1, [iTermAdvancedSettingsModel antiIdleTimerPeriod]);
 
         _antiIdleTimer = [[NSTimer scheduledTimerWithTimeInterval:period
                                                            target:self

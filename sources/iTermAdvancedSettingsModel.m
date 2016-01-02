@@ -65,7 +65,7 @@ DEFINE_BOOL(stealKeyFocus, YES, @"Mouse: When Focus Follows Mouse is enabled, st
 
 #pragma mark Terminal
 DEFINE_BOOL(traditionalVisualBell, NO, @"Terminal: Visual bell flashes the whole screen, not just a bell icon.");
-DEFINE_FLOAT(antiIdleTimerPeriod, 60, @"Terminal: Anti-idle interval in seconds.\nWill not go faster than 60 seconds.");
+DEFINE_FLOAT(antiIdleTimerPeriod, 20, @"Terminal: Anti-idle interval in seconds.");
 DEFINE_FLOAT(timeBetweenBlinks, 0.5, @"Terminal: Cursor blink speed (seconds).");
 DEFINE_BOOL(doNotSetCtype, NO, @"Terminal: Never set the CTYPE environment variable.");
 // For these, 1 is more aggressive and 0 turns the feature off:
@@ -82,7 +82,7 @@ DEFINE_BOOL(restoreWindowContents, YES, @"Terminal: Restore window contents at s
 DEFINE_INT(numberOfLinesForAccessibility, 1000, @"Terminal: Maximum number of lines of history to expose to Accessibility.\nAccessibility APIs can make iTerm2 slow. In order to limit the effect, you can restrict the number of lines in each session that are visible to accessibility. The last lines of each session will be made accessible.");
 DEFINE_INT(triggerRadius, 3, @"Terminal: Number of screen lines to match against trigger regular expressions.\nTrigger regular expressions are matched against the last logical line of text when a newline is received. A search is performed to find the start of the line. Since very long lines would cause performance problems, the search (and consequently the regular expression match, highlighting, and so on) is limited to this many screen lines.");
 DEFINE_BOOL(requireCmdForDraggingText, NO, @"Terminal: To drag images or selected text, you must hold ⌘. This prevents accidental drags.");
-DEFINE_BOOL(focusReportingEnabled, YES, @"Terminal: Apps may turn on Focus Reporting.\nFocus reporting causes iTerm2 to send an escape sequence when a session gains or loses focus. It can cause problems when an ssh session dies unexpectedly because it gets left on, so some users prefer to disable it.");
+DEFINE_BOOL(focusReportingEnabled, NO, @"Terminal: Apps may turn on Focus Reporting.\nFocus reporting causes iTerm2 to send an escape sequence when a session gains or loses focus. It can cause problems when an ssh session dies unexpectedly because it gets left on, so some users prefer to disable it.");
 
 #pragma mark Hotkey
 DEFINE_FLOAT(hotkeyTermAnimationDuration, 0.25, @"Hotkey: Duration in seconds of the hotkey window animation.\nWarning: reducing this value may cause problems if you have multiple displays.");
@@ -92,9 +92,9 @@ DEFINE_BOOL(hotkeyWindowFloatsAboveOtherWindows, NO, @"Hotkey: The hotkey window
 #pragma mark General
 DEFINE_STRING(searchCommand, @"http://google.com/search?q=%@", @"General: Template for URL of search engine.\niTerm2 replaces the string “%@” with the text to search for. Query parameter percent escaping is used.");
 DEFINE_INT(autocompleteMaxOptions, 20, @"General: Number of autocomplete options to present.\nA value less than 100 is recommended.");
-DEFINE_FLOAT(minRunningTime, 10, @"General: Grace period for automatic quitting after the last window is closed.\nIf iTerm2 is configured to quit automatically when the last window is closed, this setting gives a grace period (in seconds) after startup where that feature is disabled. Set to 0 to have no grace period.");
+DEFINE_FLOAT(minRunningTime, 0, @"General: Grace period for automatic quitting after the last window is closed.\nIf iTerm2 is configured to quit automatically when the last window is closed, this setting gives a grace period (in seconds) after startup where that feature is disabled. Set to 0 to have no grace period.");
 DEFINE_FLOAT(updateScreenParamsDelay, 1, @"General: Delay after changing number of screens/resolution until refresh (seconds).\nThis works around OS bugs where it takes some time after a screen change before it is safe to resize windows.");
-DEFINE_BOOL(disableAppNap, NO, @"General: Disable App Nap.\nChange effective after restarting iTerm2.");
+DEFINE_BOOL(disableAppNap, YES, @"General: Disable App Nap.\nChange effective after restarting iTerm2.");
 DEFINE_FLOAT(idleTimeSeconds, 2, @"General: Time in seconds before a session is considered idle.\nUsed for updating icons and activity indicator in tabs.");
 DEFINE_FLOAT(findDelaySeconds, 1, @"General: Time to wait before performing Find action on 1- or 2- character queries.");
 DEFINE_INT(maximumBytesToProvideToServices, 100000, @"General: Maximum number of bytes of selection to provide to Services.\nA large value here can cause performance issues when you have a big selection.");
@@ -110,7 +110,7 @@ DEFINE_BOOL(startDebugLoggingAutomatically, NO, @"Debugging: Start debug logging
 DEFINE_BOOL(logDrawingPerformance, NO, @"Debugging: Log stats about text drawing performance to console.\nUsed for performance testing.");
 
 #pragma mark - Session Restoration
-DEFINE_BOOL(runJobsInServers, YES, @"Session Restoration: Enable session restoration.\nSession restoration runs jobs in separate processes. They will survive crashes, force quits, and upgrades.\nYou must restart iTerm2 for this change to take effect.");
+DEFINE_BOOL(runJobsInServers, NO, @"Session Restoration: Enable session restoration.\nSession restoration runs jobs in separate processes. They will survive crashes, force quits, and upgrades.\nYou must restart iTerm2 for this change to take effect.");
 DEFINE_BOOL(killJobsInServersOnQuit, YES, @"Session Restoration: User-initiated Quit (⌘Q) of iTerm2 will kill all running jobs.\nApplies only when session restoration is on.");
 
 #pragma mark - Window
@@ -130,10 +130,10 @@ DEFINE_BOOL(neverWarnAboutOverrides, NO, @"Warnings: Suppress a warning about a 
 DEFINE_BOOL(neverWarnAboutPossibleOverrides, NO, @"Warnings: Suppress a warning about a change to a global key that's overridden by a Profile.");
 DEFINE_BOOL(noSyncNeverRemindPrefsChangesLostForUrl, NO, @"Warnings: Suppress changed-setting warning when prefs are loaded from a URL.");
 DEFINE_BOOL(noSyncNeverRemindPrefsChangesLostForFile, NO, @"Warnings: Suppress changed-setting warning when prefs are loaded from a custom folder.");
-DEFINE_BOOL(noSyncSuppressAnnyoingBellOffer, NO, @"Warnings: Suppress offer to silence bell when it rings too much.");
+DEFINE_BOOL(noSyncSuppressAnnyoingBellOffer, YES, @"Warnings: Suppress offer to silence bell when it rings too much.");
 
-DEFINE_BOOL(suppressMultilinePasteWarningWhenPastingOneLineWithTerminalNewline, NO, @"Warnings: Suppress warning about multiline paste when pasting a single line ending with a newline.");
-DEFINE_BOOL(suppressMultilinePasteWarningWhenNotAtShellPrompt, NO, @"Warnings: Suppress warning about multiline paste when not at prompt.\nRequires Shell Integration to be installed.");
+DEFINE_BOOL(suppressMultilinePasteWarningWhenPastingOneLineWithTerminalNewline, YES, @"Warnings: Suppress warning about multiline paste when pasting a single line ending with a newline.");
+DEFINE_BOOL(suppressMultilinePasteWarningWhenNotAtShellPrompt, YES, @"Warnings: Suppress warning about multiline paste when not at prompt.\nRequires Shell Integration to be installed.");
 DEFINE_BOOL(noSyncSuppressBroadcastInputWarning, NO, @"Warnings: Suppress warning about broadcasting input.");
 DEFINE_BOOL(noSyncSuppressCaptureOutputRequiresShellIntegrationWarning, NO,
             @"Warnings: Suppress warning “Shell Integration is required for Capture Output.”");
@@ -141,8 +141,8 @@ DEFINE_BOOL(noSyncSuppressCaptureOutputToolNotVisibleWarning, NO,
             @"Warnings: Suppress warning that the Captured Output tool is not visible.");
 DEFINE_BOOL(closingTmuxWindowKillsTmuxWindows, NO, @"Warnings: Suppress kill/hide dialog when closing a tmux window.");
 DEFINE_BOOL(closingTmuxTabKillsTmuxWindows, NO, @"Warnings: Suppress kill/hide dialog when closing a tmux tab.");
-DEFINE_BOOL(aboutToPasteTabs, NO, @"Warnings: Suppress warning about pasting tabs with offer to convert them to spaces.");
-DEFINE_BOOL(noSyncDoNotWarnBeforeMultilinePaste, NO, @"Warnings: Suppress warning about pasting multiple lines (or a line ending in a newline).");
+DEFINE_BOOL(aboutToPasteTabs, YES, @"Warnings: Suppress warning about pasting tabs with offer to convert them to spaces.");
+DEFINE_BOOL(noSyncDoNotWarnBeforeMultilinePaste, YES, @"Warnings: Suppress warning about pasting multiple lines (or a line ending in a newline).");
 DEFINE_BOOL(noSyncReplaceProfileWarning, NO, @"Warnings: Suppress warning about copying a session's settings over a Profile");
 
 #pragma mark Pasteboard
@@ -158,7 +158,7 @@ DEFINE_BOOL(typingClearsSelection, YES, @"Pasteboard: Pressing a key will remove
 
 #pragma mark - Tip of the day
 
-DEFINE_BOOL(noSyncTipsDisabled, NO, @"Tip of the Day: Disable the Tip of the Day?");
+DEFINE_BOOL(noSyncTipsDisabled, YES, @"Tip of the Day: Disable the Tip of the Day?");
 
 #pragma mark - Badge
 DEFINE_STRING(badgeFont, @"Helvetica", @"Badge: Font to use for the badge.");
