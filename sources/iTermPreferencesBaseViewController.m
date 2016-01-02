@@ -154,6 +154,10 @@ static NSString *const kKey = @"key";
                 [self applyUnsignedIntegerConstraints:info];
                 [self setUInt:[sender separatorTolerantUIntValue] forKey:info.key];
                 break;
+                
+            case kPreferenceInfoTypeFloatTextField:
+                [self setFloat:[sender floatValue] forKey:info.key];
+                break;
 
             case kPreferenceInfoTypeStringTextField:
                 [self setString:[sender stringValue] forKey:info.key];
@@ -267,8 +271,14 @@ static NSString *const kKey = @"key";
         case kPreferenceInfoTypeUnsignedIntegerTextField: {
             assert([info.control isKindOfClass:[NSTextField class]]);
             NSTextField *field = (NSTextField *)info.control;
-            // FIXME: What is correct here? There is no unsignedIntegerValue in NSTextField.
             field.doubleValue = [self uintForKey:info.key];
+            break;
+        }
+
+        case kPreferenceInfoTypeFloatTextField: {
+            assert([info.control isKindOfClass:[NSTextField class]]);
+            NSTextField *field = (NSTextField *)info.control;
+            field.doubleValue = [self floatForKey:info.key];
             break;
         }
 
@@ -386,6 +396,12 @@ static NSString *const kKey = @"key";
     }
     val = MAX(val, range.location);
     val = MIN(val, range.location + range.length - 1);
+    return val;
+}
+
+- (double)floatForString:(NSString *)s
+{
+    double val = [s doubleValue];
     return val;
 }
 

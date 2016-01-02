@@ -1282,9 +1282,9 @@ set t_Co=256
 
 <p><br/><br/></p>
 
-<h4>When idle, send ASCII code</h4>
+<h4>When idle, send ASCII code ___ every ___ seconds.</h4>
 
-<p>If selected, the specified ASCII code will be transmitted every 30 seconds while nothing is happening. Don't use this unless you know what you're doing as it can have unexpected consequences.</p>
+<p>The specified ASCII code (usually 0/NULL) will be transmitted every specified number of seconds while nothing else is happening. Specifying 0 seconds disables the feature.</p>
 
 <p><br/><br/></p>
 
@@ -1843,8 +1843,6 @@ either iTerm2 is made active again, or the "cancel" sequence is received.
 <li>1 = Bounce Dock Icon continuously until iTerm2 made active</li>
 <li>0 = Cancel Existing Bouncing. No-op if not bouncing.</li>
 </ul>
-
-<p><br/>
 <br/>
 <br/>
 <a name="/section/documentation/licenses">

@@ -1,7 +1,4 @@
-﻿/* NSButton (When idle, sends) : <title: When idle, sends> (oid:926) */
-" When idle, sends" = " When idle, sends";
-
-/* NSTextField (%) : <title:%> (oid:1374) */
+﻿/* NSTextField (%) : <title:%> (oid:1374) */
 "%" = "%";
 
 /* NSButton (+) : <title:+> (oid:895) */

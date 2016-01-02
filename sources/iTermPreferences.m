@@ -276,6 +276,7 @@ static NSMutableDictionary *gObservers;
     switch (type) {
         case kPreferenceInfoTypeIntegerTextField:
         case kPreferenceInfoTypeUnsignedIntegerTextField:
+        case kPreferenceInfoTypeFloatTextField:
         case kPreferenceInfoTypePopup:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
                     [defaultValue doubleValue] == ceil([defaultValue doubleValue]));

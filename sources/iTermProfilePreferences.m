@@ -89,6 +89,7 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
     switch (type) {
         case kPreferenceInfoTypeIntegerTextField:
         case kPreferenceInfoTypeUnsignedIntegerTextField:
+        case kPreferenceInfoTypeFloatTextField:
         case kPreferenceInfoTypePopup:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
                     [defaultValue doubleValue] == ceil([defaultValue doubleValue]));
@@ -217,13 +218,13 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
                   KEY_SET_LOCALE_VARS: @YES,
                   KEY_CLOSE_SESSIONS_ON_END: @NO,
                   KEY_PROMPT_CLOSE: @(PROMPT_NEVER),
-                  KEY_UNDO_TIMEOUT: @(0),
+                  KEY_UNDO_TIMEOUT: @0,
                   KEY_JOBS: @[],
                   KEY_REDUCE_FLICKER: @NO,
                   KEY_AUTOLOG: @NO,
                   KEY_LOGDIR: @"",
-                  KEY_SEND_CODE_WHEN_IDLE: @NO,
                   KEY_IDLE_CODE: @0,
+                  KEY_IDLE_PERIOD: @0,
                   KEY_OPTION_KEY_SENDS: @(OPT_NORMAL),
                   KEY_RIGHT_OPTION_KEY_SENDS: @(OPT_NORMAL),
                   KEY_APPLICATION_KEYPAD_ALLOWED: @NO,
