@@ -46,11 +46,11 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
     [self setObject:@(value) forKey:key inProfile:profile model:model];
 }
 
-+ (NSUInteger)uintForKey:(NSString *)key inProfile:(Profile *)profile {
++ (NSUInteger)unsignedIntegerForKey:(NSString *)key inProfile:(Profile *)profile {
     return [[self objectForKey:key inProfile:profile] unsignedIntegerValue];
 }
 
-+ (void)setUInt:(NSUInteger)value
++ (void)setUnsignedInteger:(NSUInteger)value
         forKey:(NSString *)key
      inProfile:(Profile *)profile
          model:(ProfileModel *)model {
@@ -88,14 +88,14 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
     id defaultValue = [self defaultValueMap][key];
     switch (type) {
         case kPreferenceInfoTypeIntegerTextField:
-        case kPreferenceInfoTypeUnsignedIntegerTextField:
         case kPreferenceInfoTypeFloatTextField:
         case kPreferenceInfoTypePopup:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
                     [defaultValue doubleValue] == ceil([defaultValue doubleValue]));
-        case kPreferenceInfoTypeUPopup:
+        case kPreferenceInfoTypeUnsignedIntegerTextField:
+        case kPreferenceInfoTypeUnsignedIntegerPopup:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
-                    [defaultValue unsignedLongValue] == ceil([defaultValue unsignedLongValue]));
+                    [defaultValue unsignedLongValue] == [defaultValue unsignedLongValue]);
         case kPreferenceInfoTypeCheckbox:
         case kPreferenceInfoTypeInvertedCheckbox:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
