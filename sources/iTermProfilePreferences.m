@@ -94,8 +94,7 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
                     [defaultValue doubleValue] == ceil([defaultValue doubleValue]));
         case kPreferenceInfoTypeUnsignedIntegerTextField:
         case kPreferenceInfoTypeUnsignedIntegerPopup:
-            return ([defaultValue isKindOfClass:[NSNumber class]] &&
-                    [defaultValue unsignedLongValue] == [defaultValue unsignedLongValue]);
+            return ([defaultValue isKindOfClass:[NSNumber class]]);
         case kPreferenceInfoTypeCheckbox:
         case kPreferenceInfoTypeInvertedCheckbox:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&
@@ -199,7 +198,7 @@ NSString *const kProfilePreferenceInitialDirectoryAdvancedValue = @"Advanced";
                   KEY_SCROLLBACK_WITH_STATUS_BAR: @NO,
                   KEY_SCROLLBACK_IN_ALTERNATE_SCREEN: @YES,
                   KEY_CHARACTER_ENCODING: @(NSUTF8StringEncoding),
-                  KEY_TERMINAL_TYPE: @"xterm",
+                  KEY_TERMINAL_TYPE: @"linux",
                   KEY_ANSWERBACK_STRING: @"Aljex_iTerm2\n",
                   KEY_XTERM_MOUSE_REPORTING: @NO,
                   KEY_ALLOW_TITLE_REPORTING: @NO,

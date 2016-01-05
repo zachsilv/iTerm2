@@ -205,8 +205,6 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     VT100Terminal *_terminal;
 
     NSString *_termVariable;
-    
-    NSString *_answerBackString;
 
     // Has the underlying connection been closed?
     BOOL _exited;
@@ -1088,6 +1086,7 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     [_scrollview setHasVerticalScroller:[parent scrollbarShouldBeVisible]];
 
     _antiIdleCode = 0;
+    _antiIdlePeriod=0;
     [_antiIdleTimer release];
     _antiIdleTimer = nil;
     _newOutput = NO;
@@ -2681,7 +2680,7 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     
     [self setEncoding:[iTermProfilePreferences unsignedIntegerForKey:KEY_CHARACTER_ENCODING inProfile:aDict]];
     [self setTermVariable:[iTermProfilePreferences stringForKey:KEY_TERMINAL_TYPE inProfile:aDict]];
-    [self setAnswerBackString:[iTermProfilePreferences stringForKey:KEY_ANSWERBACK_STRING inProfile:aDict]];
+    [_terminal setAnswerBackString:[iTermProfilePreferences stringForKey:KEY_ANSWERBACK_STRING inProfile:aDict]];
     [self setAntiIdleCode:[iTermProfilePreferences intForKey:KEY_IDLE_CODE inProfile:aDict]];
     [self setAntiIdle:[iTermProfilePreferences floatForKey:KEY_IDLE_PERIOD inProfile:aDict]];
     [self setAutoClose:[iTermProfilePreferences boolForKey:KEY_CLOSE_SESSIONS_ON_END inProfile:aDict]];
@@ -2954,13 +2953,6 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     [_terminal setTermType:_termVariable];
 }
 
-- (void)setAnswerBackString:(NSString *)s
-{
-    [_answerBackString autorelease];
-    _answerBackString = [s copy];
-    [_terminal setAnswerBackString:_answerBackString];
-}
-
 - (void)setView:(SessionView*)newView
 {
     // View holds a reference to us so we don't hold a reference to it.
@@ -3044,18 +3036,14 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
 }
 
 - (void)setAntiIdle:(NSTimeInterval)period {
-    //NSTimeInterval period = [iTermProfilePreferences floatForKey:KEY_IDLE_PERIOD inProfile:_profile];
-    
     [_antiIdleTimer invalidate];
     [_antiIdleTimer release];
     _antiIdleTimer = nil;
-    
     if (period > 0) _antiIdleTimer = [[NSTimer scheduledTimerWithTimeInterval:period
                                                            target:self
                                                          selector:@selector(doAntiIdle)
                                                          userInfo:nil
-                                                          repeats:YES]
-                                       retain];
+                                                          repeats:YES] retain];
 }
 
 - (BOOL)useBoldFont

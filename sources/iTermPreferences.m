@@ -281,8 +281,7 @@ static NSMutableDictionary *gObservers;
                     [defaultValue doubleValue] == ceil([defaultValue doubleValue]));
         case kPreferenceInfoTypeUnsignedIntegerTextField:
         case kPreferenceInfoTypeUnsignedIntegerPopup:
-            return ([defaultValue isKindOfClass:[NSNumber class]] &&
-                    [defaultValue unsignedLongValue] == [defaultValue unsignedLongValue]);
+            return ([defaultValue isKindOfClass:[NSNumber class]]);
         case kPreferenceInfoTypeCheckbox:
         case kPreferenceInfoTypeInvertedCheckbox:
             return ([defaultValue isKindOfClass:[NSNumber class]] &&

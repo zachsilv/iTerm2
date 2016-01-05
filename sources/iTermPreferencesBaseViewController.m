@@ -399,12 +399,6 @@ static NSString *const kKey = @"key";
     return val;
 }
 
-- (double)floatForString:(NSString *)s
-{
-    double val = [s doubleValue];
-    return val;
-}
-
 - (void)applyIntegerConstraints:(PreferenceInfo *)info {
     // NSNumberFormatter seems to have lost its mind on Lion. See a description of the problem here:
     // http://stackoverflow.com/questions/7976951/nsnumberformatter-erasing-value-when-it-violates-constraints

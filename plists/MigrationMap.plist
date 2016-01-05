@@ -721,18 +721,6 @@
 			<key>Prefix</key>
 			<string>Terminal</string>
 			<key>Suffix</key>
-			<string>Answerback String</string>
-			<key>Type</key>
-			<string>string</string>
-			<key>Destination</key>
-			<string>Answerback String</string>
-			<key>Default</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>Prefix</key>
-			<string>Terminal</string>
-			<key>Suffix</key>
 			<string>Send Idle Char</string>
 			<key>Type</key>
 			<string>bool</string>

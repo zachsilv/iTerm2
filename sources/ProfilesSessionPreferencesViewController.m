@@ -22,7 +22,6 @@
     IBOutlet NSButton *_removeJob;
     IBOutlet NSButton *_autoLog;
     IBOutlet NSTextField *_logDir;
-    IBOutlet NSButton *_sendCodeWhenIdle;
     IBOutlet NSTextField *_idleCode;
     IBOutlet NSTextField *_idlePeriod;
 
@@ -76,7 +75,7 @@
     info = [self defineControl:_idleCode
                            key:KEY_IDLE_CODE
                           type:kPreferenceInfoTypeIntegerTextField];
-    info.range = NSMakeRange(0, 255);
+    info.range = NSMakeRange(0, 256);
     
     [self defineControl:_idlePeriod
                     key:KEY_IDLE_PERIOD
