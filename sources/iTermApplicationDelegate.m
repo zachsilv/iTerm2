@@ -444,7 +444,7 @@ static BOOL hasBecomeActive = NO;
         } else {
             message = @"All sessions will be closed.";
         }
-        BOOL stayput = NSRunAlertPanel(@"Quit iTerm2?",
+        BOOL stayput = NSRunAlertPanel(@"Quit Aljex_iTerm2?",
                                        @"%@",
                                        @"OK",
                                        @"Cancel",
