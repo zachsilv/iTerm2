@@ -245,8 +245,6 @@
 	<true/>
 	<key>Use Italic Font</key>
 	<true/>
-	<key>Disable Window Resizing</key>
-	<true/>
 	<key>Flashing Bell</key>
 	<false/>
 	<key>Horizontal Spacing</key>
@@ -543,31 +541,21 @@
 	<key>Ambiguous Double Width</key>
 	<false/>
 	<key>Non Ascii Font</key>
-	<string>AndaleMono 14</string>
+	<string>AndaleMono 24</string>
 	<key>Normal Font</key>
-	<string>AndaleMono 14</string>
+	<string>AndaleMono 24</string>
 	<key>Rows</key>
 	<integer>25</integer>
-	<key>Scrollback Lines</key>
-	<integer>1000</integer>
-	<key>Idle Code</key>
-	<integer>0</integer>
-	<key>Idle Period</key>
-	<integer>20</integer>
+	<key>New item</key>
+	<string></string>
 	<key>Shortcut</key>
 	<string></string>
 	<key>Silence Bell</key>
 	<false/>
 	<key>Sync Title</key>
 	<false/>
-	<key>Terminal Type</key>
-	<string>linux</string>
-	<key>Answerback String</key>
-	<string>Aljex_iTerm2\n</string>
 	<key>Transparency</key>
 	<real>0</real>
-	<key>Unlimited Scrollback</key>
-	<false/>
 	<key>Vertical Spacing</key>
 	<real>1</real>
 	<key>Visual Bell</key>

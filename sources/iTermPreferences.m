@@ -214,7 +214,7 @@ static NSMutableDictionary *gObservers;
                   kPreferenceKeyDimmingAmount: @0.4,
                   kPreferenceKeyDimInactiveSplitPanes: @YES,
                   kPreferenceKeyShowWindowBorder: @NO,
-                  kPreferenceKeyHideScrollbar: @NO,
+                  kPreferenceKeyHideScrollbar: @YES,
                   kPreferenceKeyDisableFullscreenTransparencyByDefault: @NO,
                   kPreferenceKeyDimBackgroundWindows: @NO,
 
