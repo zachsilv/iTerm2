@@ -123,5 +123,7 @@
 + (BOOL)focusReportingEnabled;
 
 + (BOOL)hideFromDockAndAppSwitcher;
++ (BOOL)hotkeyWindowIgnoresSpotlight;
++ (BOOL)tabTitlesUseSmartTruncation;
 
 @end
